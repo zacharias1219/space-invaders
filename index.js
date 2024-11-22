@@ -62,6 +62,30 @@ class Projectile {
     }
 }
 
+class Invader {
+    constructor() {
+        this.velocity = {
+            x: 0,
+            y: 0
+        }
+
+        this.rotation = 0
+
+        const image = new Image()
+        image.src = "./img/invader.png"
+        image.onload = () => {
+            const scale = 0.15
+            this.image = image
+            this.width = image.width * scale
+            this.height = image.height * scale
+            this.position = {
+                x: Math.random() * (canvas.width - this.width),
+                y: Math.random() * (canvas.height - this.height)
+            }
+        }
+    }
+}
+
 const player = new Player()
 const projectiles = []
 player.draw()
